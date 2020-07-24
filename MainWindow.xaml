@@ -1,0 +1,35 @@
+﻿<Window x:Class="LandmarkAi.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LandmarkAi"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>        
+        <StackPanel x:Name="mainStackPanel" Margin="10">
+            <Button x:Name="btnSelectImage" Content="Select Image" HorizontalAlignment="Center" Click="btnSelectImage_Click"  MaxHeight="400" MaxWidth="780"/>
+            <Image x:Name="imgShowImage" Margin="0,10,0,0" StretchDirection="Both" Stretch="Fill"/>
+        </StackPanel>
+        <ListView x:Name="lstPredictions"
+                  Grid.Column="1"
+                  Width="200"
+                  VerticalAlignment="Top"
+                  Margin="5,5,5,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Tag"
+                                    Width="95"
+                                    DisplayMemberBinding="{Binding Tag}"/>
+                    <GridViewColumn Header="Probability"
+                                    Width="95"
+                                    DisplayMemberBinding="{Binding Probability}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
